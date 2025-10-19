@@ -1,6 +1,3 @@
-## Bienvenido a mi repositorio.
-+ Para este proyecto vamos a necesitar la siguiente tabla:
-```SQL
 CREATE DATABASE tarea_08;
 USE tarea_08;
 
@@ -25,5 +22,4 @@ artefactos de poder inimaginable, y usarlas para imponer su perversa voluntad a 
 '4', 
 156);
 
-SELECT * FROM peliculas; 
-```
+SELECT * FROM peliculas;
