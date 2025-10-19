@@ -1,0 +1,18 @@
+//
+const express = require('express')
+
+//Llamamos al objeto que nos ayudara con el manejo de rutas
+const router = express.Router()
+
+//Importamos nuestro controlador
+const peliculaController = require('../controllers/peliculaController')
+
+
+//Definimos la ruta con el metodo al que llamaremos cuando entremos a la ruta
+router.get('/', peliculaController.getAllPeliculas)
+router.get('/:id', peliculaController.getPeliculaById)
+router.post('/', peliculaController.createPelicula)
+router.put('/:id', peliculaController.editPelicula)
+router.delete('/:id', peliculaController.deletePelicual)
+
+module.exports = router
