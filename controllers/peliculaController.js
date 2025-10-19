@@ -1,3 +1,8 @@
+/**
+ * Este archivo tendra toda la logica de nuestra aplicación(crear, leer, modificar y eliminar)
+ */
+
+
 //Primero obtenemos el pool de conexiones de nuestro archivo db.js
 const db = require('../config/db')
 
@@ -21,14 +26,16 @@ exports.getAllPeliculas = async (req, res)=>{
     }
 }
 
-//Obtener pelicula por ID
+//Obtener una pelicula por ID
 exports.getPeliculaById = async (req, res)=>{
+    //Obtenemos el id que nos pasaraon en la URL
     const {id} = req.params
 
     //SQL
     const SQL = 'SELECT * FROM peliculas WHERE ID =?'
 
     try {
+        //Guardamos el resultado de nuestra consulta. Para luego mostrarlo por JSON.
         const [result] = await db.query(SQL,[id])
 
         if(!result){
@@ -47,12 +54,14 @@ exports.getPeliculaById = async (req, res)=>{
     }
 }
 
-//Crea una pelicula
+//Crear una pelicula
 exports.createPelicula = async (req, res)=>{
+    //Obtenemos los valores que nos pasarón en el JSON mediante el body.
     const {nombre, sinopsis, genero, director, calificacion, duracion} = req.body
 
     const SQL = 'INSERT INTO peliculas(nombre, sinopsis, genero, director, calificacion, duracion) VALUES (?, ?, ?, ?, ?, ?)'
     try {
+        //Ejecutamos la consulta y guardamos los resultados en una constante.
         const [result] = await db.query(SQL, [nombre, sinopsis, genero, director, calificacion, duracion])
         
         if(result.affectedRows === 0){
@@ -73,15 +82,20 @@ exports.createPelicula = async (req, res)=>{
     }
 }
 
-//Edita una pelicula
+//Editar una pelicula
 exports.editPelicula = async (req, res) => {
+    //Obtenemos el id que nos pasarón en la URL
     const {id} = req.params
+
+    //Obtenemos los valores del JSON que nos pasarón por el body.
     const {nombre, sinopsis, genero, director, calificacion, duracion} = req.body
 
     const SQL = 'UPDATE peliculas SET nombre=?, sinopsis=?, genero=?, director=?, calificacion=?, duracion=? WHERE id=?'
 
     try {
+        //Ejecutamos la consulta y lo guardamos el resultado en una constante.
         const [result] = await db.query(SQL, [nombre, sinopsis, genero, director, calificacion, duracion, id]) 
+        
         if(result.affectedRows === 0){
             return res.status(404).json({mensaje: 'No se logro Actualizar'})
         }
@@ -94,12 +108,16 @@ exports.editPelicula = async (req, res) => {
     }
 }
 
+//Eliminar una pelicula por ID
 exports.deletePelicula = async(req, res)=>{
+    //Obtenemos el id por la URL.
     const {id} = req.params
-    //
+
+    //Preparamos la consulta
     const SQL = 'DELETE FROM peliculas WHERE id=?'
 
     try {
+        //Ejecutamos la consulta.
         const [result] = await db.query(SQL, [id])
 
         if(result.affectedRows === 0){

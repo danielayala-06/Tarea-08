@@ -1,12 +1,12 @@
-/***
-    Usamos este archivo para crear un pool 
-    de conexiones para reutilizarlos
-***/
+/**
+ * Usamos este archivo para crear un pool de conexiones y reutilizarlas
+*/
+    
 
-//Accedemos al archivo .env para obtener las variables de entorno y establecer la conexión
+//Accedemos al archivo .env para obtener las variables de entorno y establecer la conexión con la BD
 require('dotenv').config()
 
-
+//Referenciamos un modulo de mysql2 para el manejo de promesas(una acción que tardara un tiempo en resolverse)
 const mysql = require('mysql2/promise')
 
 

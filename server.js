@@ -1,7 +1,12 @@
+/**
+ * Este archivo levanta nuestra aplicación
+ */
+
 const express = require('express')
 
 //Llamamos a los enrutadores
 const peliculaRouter = require('./routes/peliculaRouter')
+
 
 const app = express()
 const PORT = process.env.PORT || 3000 //puerto para la APP
