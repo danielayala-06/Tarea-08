@@ -94,7 +94,7 @@ exports.editPelicula = async (req, res) => {
     }
 }
 
-exports.deletePelicual = async(req, res)=>{
+exports.deletePelicula = async(req, res)=>{
     const {id} = req.params
     //
     const SQL = 'DELETE FROM peliculas WHERE id=?'

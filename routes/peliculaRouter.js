@@ -13,6 +13,6 @@ router.get('/', peliculaController.getAllPeliculas)
 router.get('/:id', peliculaController.getPeliculaById)
 router.post('/', peliculaController.createPelicula)
 router.put('/:id', peliculaController.editPelicula)
-router.delete('/:id', peliculaController.deletePelicual)
+router.delete('/:id', peliculaController.deletePelicula)
 
 module.exports = router
