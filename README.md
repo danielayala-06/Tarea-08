@@ -17,7 +17,7 @@ CREATE TABLE peliculas(
     duracion 		TINYINT UNSIGNED NOT NULL COMMENT 'La duracion se esta registrando en minutos'
 )ENGINE =  INNODB;
 
---Insercción de registros
+-- Insercción de registros
 INSERT INTO peliculas(nombre, sinopsis, genero, director, calificacion, duracion) VALUES
 ('Avengers: Infinity War', 
 'Un nuevo peligro acecha procedente de las sombras del cosmos. 
