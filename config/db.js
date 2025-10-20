@@ -2,7 +2,6 @@
  * Usamos este archivo para crear un pool de conexiones y reutilizarlas
 */
     
-
 //Accedemos al archivo .env para obtener las variables de entorno y establecer la conexión con la BD
 require('dotenv').config()
 
